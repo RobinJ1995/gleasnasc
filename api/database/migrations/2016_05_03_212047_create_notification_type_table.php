@@ -7,7 +7,7 @@ class CreateNotificationTypeTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('notificationType', function(Blueprint $table) {
+		Schema::create('notification_type', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 64)->unique();
 		});
@@ -15,6 +15,6 @@ class CreateNotificationTypeTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('notificationType');
+		Schema::drop('notification_type');
 	}
 }

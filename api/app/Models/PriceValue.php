@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class PriceValue extends Model
 {
 	
-	protected $table = 'priceValue';
+	protected $table = 'price_value';
 	public $timestamps = false;
 	
 	public function price()
 	{
-		return $this->hasOne('Price');
+		return $this->hasOne('App\Models\Price');
 	}
 	
 	public function currency()
 	{
-		return $this->hasOne('Currency');
+		return $this->hasOne('App\Models\Currency');
 	}
 	
 }

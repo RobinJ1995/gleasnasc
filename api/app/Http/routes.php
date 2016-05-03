@@ -12,3 +12,6 @@
 */
 
 $app->post ('/user', 'UserController@store');
+
+$app->post ('/user/{user}/device', 'DeviceController@store');
+$app->get ('/user/{user}/device', 'DeviceController@index');

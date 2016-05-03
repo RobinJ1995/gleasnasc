@@ -23,12 +23,12 @@ class User extends Model implements
 	
 	public function roles()
 	{
-		return $this->belongsToMany('Role');
+		return $this->belongsToMany('App\Models\Role');
 	}
 	
 	public function devices()
 	{
-		return $this->hasMany('Device');
+		return $this->hasMany('App\Models\Device');
 	}
 
 	public function setPasswordAttribute ($value)

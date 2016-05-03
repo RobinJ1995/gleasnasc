@@ -7,7 +7,7 @@ class CreateDeviceAttributeTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('deviceAttribute', function(Blueprint $table) {
+		Schema::create('device_attribute', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 64)->unique();
 			$table->integer('parent_id')->unsigned()->nullable();
@@ -16,6 +16,6 @@ class CreateDeviceAttributeTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('deviceAttribute');
+		Schema::drop('device_attribute');
 	}
 }

@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class DeviceNotificationStatus extends Model
 {
 	
-	protected $table = 'deviceNotificationStatus';
+	protected $table = 'device_notification_status';
 	public $timestamps = false;
 	
 	public function device()
 	{
-		return $this->belongsTo('Device');
+		return $this->belongsTo('App\Models\Device');
 	}
 	
 	public function notification()
 	{
-		return $this->belongsTo('Notification');
+		return $this->belongsTo('App\Models\Notification');
 	}
 	
 }

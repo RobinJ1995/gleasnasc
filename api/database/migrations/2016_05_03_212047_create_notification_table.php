@@ -16,7 +16,7 @@ class CreateNotificationTable extends Migration {
 			$table->datetime('postTime')->nullable();
 			$table->boolean('clearable')->nullable();
 			$table->boolean('ongoing')->nullable();
-			$table->integer('notificationType_id')->unsigned();
+			$table->integer('notification_type_id')->unsigned();
 		});
 	}
 
