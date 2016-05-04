@@ -12,6 +12,9 @@
 */
 
 $app->post ('/user', 'UserController@store');
+$app->get ('/user', 'UserController@show');
 
-$app->post ('/user/{user}/device', 'DeviceController@store');
 $app->get ('/user/{user}/device', 'DeviceController@index');
+$app->post ('/user/{user}/device', 'DeviceController@store');
+$app->put ('/user/{user}/device/{device}', 'DeviceController@update');
+$app->get ('/device/attribute', 'DeviceController@attributes');

@@ -8,6 +8,11 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class UserController extends BaseController
 {
+	public function show (Request $req)
+	{
+		var_dump (app ('auth')->user ());
+	}
+
 	public function store (Request $req)
 	{
 		$this->validate
