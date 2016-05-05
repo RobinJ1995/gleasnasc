@@ -3,14 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use GenTux\Jwt\GetsJwtToken;
+use GenTux\Jwt\JwtToken;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class UserController extends BaseController
 {
+	use GetsJwtToken;
+
+	public function authenticate (Request $req, JwtToken $jwt)
+	{
+		$user = User::find (5);
+
+		$token = $jwt->createToken ($user);
+
+		foreach ($user->roles as $role)
+			$role->permissions;
+		foreach ($user->subscriptions as $subscription)
+			$subscription->subscriptionType;
+
+		return [
+			'user' => $user,
+			'token' => $token
+		];
+	}
+
 	public function show (Request $req)
 	{
-		var_dump (app ('auth')->user ());
+
 	}
 
 	public function store (Request $req)

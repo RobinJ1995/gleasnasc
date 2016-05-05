@@ -11,10 +11,22 @@
 |
 */
 
+$app->post ('/user/auth', 'UserController@authenticate');
 $app->post ('/user', 'UserController@store');
-$app->get ('/user', 'UserController@show');
 
-$app->get ('/user/{user}/device', 'DeviceController@index');
-$app->post ('/user/{user}/device', 'DeviceController@store');
-$app->put ('/user/{user}/device/{device}', 'DeviceController@update');
-$app->get ('/device/attribute', 'DeviceController@attributes');
+$app->group
+(
+	[
+		'middleware' => 'jwt',
+		//'namespace' => 'App\Http\Controllers'
+	],
+	function ($app)
+	{
+		$app->get ('/user', 'UserController@show');
+
+		$app->get ('/user/{user}/device', 'DeviceController@index');
+		$app->post ('/user/{user}/device', 'DeviceController@store');
+		$app->put ('/user/{user}/device/{device}', 'DeviceController@update');
+		$app->get ('/device/attribute', 'DeviceController@attributes');
+	}
+);
