@@ -11,7 +11,7 @@ class CreateSubscriptionTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->integer('user_id')->unsigned();
-			$table->integer('subscriptionType_id')->unsigned();
+			$table->integer('subscription_type_id')->unsigned();
 			$table->datetime('expires')->nullable();
 		});
 	}

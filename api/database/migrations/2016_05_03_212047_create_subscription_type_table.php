@@ -7,7 +7,7 @@ class CreateSubscriptionTypeTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('subscriptionType', function(Blueprint $table) {
+		Schema::create('subscription_type', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 64)->unique();
 			$table->integer('price_monthly_id')->unsigned()->nullable();
@@ -17,6 +17,6 @@ class CreateSubscriptionTypeTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('subscriptionType');
+		Schema::drop('subscription_type');
 	}
 }

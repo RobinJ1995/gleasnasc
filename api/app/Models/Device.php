@@ -17,12 +17,12 @@ class Device extends Model
 	
 	public function deviceAttributes()
 	{
-		return $this->belongsToMany('DeviceAttribute');
+		return $this->belongsToMany('App\Models\DeviceAttribute');
 	}
 	
 	public function user()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('App\Models\User');
 	}
 	
 }

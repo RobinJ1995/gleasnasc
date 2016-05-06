@@ -12,17 +12,17 @@ class Notification extends Model
 	
 	public function device()
 	{
-		return $this->belongsTo('Device');
+		return $this->belongsTo('App\Models\Device');
 	}
 	
 	public function application()
 	{
-		return $this->belongsTo('Application');
+		return $this->belongsTo('App\Models\Application');
 	}
 	
 	public function notificationType()
 	{
-		return $this->belongsTo('NotificationType');
+		return $this->belongsTo('App\Models\NotificationType');
 	}
 	
 }

@@ -12,7 +12,7 @@ class Currency extends Model
 	
 	public function priceValues()
 	{
-		return $this->hasMany('PriceValue');
+		return $this->hasMany('App\Models\PriceValue');
 	}
 	
 }

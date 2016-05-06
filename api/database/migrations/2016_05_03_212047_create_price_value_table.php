@@ -7,7 +7,7 @@ class CreatePriceValueTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('priceValue', function(Blueprint $table) {
+		Schema::create('price_value', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('price_id')->unsigned();
 			$table->integer('currency_id')->unsigned();
@@ -17,6 +17,6 @@ class CreatePriceValueTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('priceValue');
+		Schema::drop('price_value');
 	}
 }

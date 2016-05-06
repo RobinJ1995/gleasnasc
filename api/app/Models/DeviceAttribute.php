@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class DeviceAttribute extends Model
 {
 	
-	protected $table = 'deviceAttribute';
+	protected $table = 'device_attribute';
 	public $timestamps = false;
 	
 	public function parent()
 	{
-		return $this->belongsTo('DeviceAttribute', 'parent_id');
+		return $this->belongsTo('App\Models\DeviceAttribute', 'parent_id');
 	}
 	
 	public function devices()
 	{
-		return $this->belongsToMany('Device');
+		return $this->belongsToMany('App\Models\Device');
 	}
 	
 }

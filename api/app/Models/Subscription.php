@@ -12,12 +12,12 @@ class Subscription extends Model
 	
 	public function user()
 	{
-		return $this->hasOne('User');
+		return $this->hasOne('App\Models\User');
 	}
 	
 	public function subscriptionType()
 	{
-		return $this->hasOne('SubscriptionType');
+		return $this->hasOne('App\Models\SubscriptionType');
 	}
 	
 }

@@ -7,7 +7,7 @@ class CreateDeviceNotificationStatusTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('deviceNotificationStatus', function(Blueprint $table) {
+		Schema::create('device_notification_status', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('device_id')->unsigned();
 			$table->integer('notification_id')->unsigned();
@@ -19,6 +19,6 @@ class CreateDeviceNotificationStatusTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('deviceNotificationStatus');
+		Schema::drop('device_notification_status');
 	}
 }
