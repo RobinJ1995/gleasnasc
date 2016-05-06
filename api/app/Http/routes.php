@@ -24,9 +24,12 @@ $app->group
 	{
 		$app->get ('/user', 'UserController@show');
 
-		$app->get ('/user/{user}/device', 'DeviceController@index');
-		$app->post ('/user/{user}/device', 'DeviceController@store');
-		$app->put ('/user/{user}/device/{device}', 'DeviceController@update');
+		$app->get ('/device', 'DeviceController@index');
+		$app->post ('/device', 'DeviceController@store');
+		$app->put ('/device/{device}', 'DeviceController@update');
 		$app->get ('/device/attribute', 'DeviceController@attributes');
+
+		$app->get ('/device/{device}/notification/{notification}', 'NotificationController@show');
+		$app->post ('/device/{device}/notification', 'NotificationController@store');
 	}
 );

@@ -5,25 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Device;
 use App\Models\DeviceAttribute;
 use App\Models\User;
+use GenTux\Jwt\GetsJwtToken;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class DeviceController extends BaseController
 {
-	public function index (Request $req, int $userId)
+	use GetsJwtToken;
+
+	public function index (Request $req)
 	{
-		$user = User::findOrFail ($userId);
-		$devices = $user->devices;
+		$devices = Device::where ('user_id', $this->jwtPayload ()['user']['id'])->with ('deviceAttributes')->get ();
 
-		foreach ($devices as $device)
-			$device->deviceAttributes;
-
-		return response ()->json ($user->devices);
+		return response ()->json ($devices);
 	}
 
-	public function store (Request $req, int $userId)
+	public function store (Request $req)
 	{
-		$user = User::findOrFail ($userId);
+		$user = User::findOrFail ($this->jwtPayload ()['user']['id']);
 
 		$this->validate
 		(
@@ -54,7 +53,7 @@ class DeviceController extends BaseController
 		return response ()->json ($device);
 	}
 
-	public function update (Request $req, int $userId, int $deviceId)
+	public function update (Request $req, int $deviceId)
 	{
 		$device = Device::findOrFail ($deviceId);
 

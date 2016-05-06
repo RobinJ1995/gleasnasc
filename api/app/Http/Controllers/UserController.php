@@ -71,11 +71,14 @@ class UserController extends BaseController
 		foreach ($user->subscriptions as $subscription)
 			$subscription->subscriptionType;
 
-		return [
-			'user' => $user,
-			'device' => $device,
-			'token' => $token
-		];
+		return response ()->json
+		(
+			[
+				'user' => $user,
+				'device' => $device,
+				'token' => $token
+			]
+		);
 	}
 
 	public function show (Request $req)

@@ -24,5 +24,9 @@ class Notification extends Model
 	{
 		return $this->belongsTo('App\Models\NotificationType');
 	}
-	
+
+	public function deviceNotificationStatus ()
+	{
+		return $this->hasMany ('App\Models\DeviceNotificationStatus');
+	}
 }
