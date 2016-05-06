@@ -25,7 +25,7 @@ class User extends Model implements
 	
 	public function roles()
 	{
-		return $this->belongsToMany('App\Models\Role');
+		return $this->belongsToMany('App\Models\Role')->withTimestamps ();
 	}
 	
 	public function devices()
@@ -41,9 +41,10 @@ class User extends Model implements
 	public function getPayload ()
 	{
 		return [
-			'sub' => $this->id,
 			'exp' => time () + 60 * 60 * 24 * 7,
-			'context' => [
+			'user' => [
+				'id' => $this->id,
+				'username' => $this->username,
 				'email' => $this->email
 			]
 		];
@@ -52,5 +53,10 @@ class User extends Model implements
 	public function setPasswordAttribute ($value)
 	{
 		$this->attributes['password'] = app ('hash')->make ($value);
+	}
+
+	public function checkPassword ($password)
+	{
+		return app ('hash')->check ($password, $this->password);
 	}
 }

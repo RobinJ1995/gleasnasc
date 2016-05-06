@@ -18,7 +18,7 @@ $app->group
 (
 	[
 		'middleware' => 'jwt',
-		//'namespace' => 'App\Http\Controllers'
+		'namespace' => 'App\Http\Controllers'
 	],
 	function ($app)
 	{

@@ -48,8 +48,9 @@ class Handler extends ExceptionHandler
 	 */
 	public function render($request, Exception $e)
 	{
-		//return parent::render($request, $e);
-		//TODO//
+		//if ($e instanceof ValidationException) //TODO// https://github.com/generationtux/jwt-artisan/issues/11 //
+			return parent::render ($request, $e);
+
 		$obj = [
 			'error' => true,
 			'message' => $e->getMessage ()

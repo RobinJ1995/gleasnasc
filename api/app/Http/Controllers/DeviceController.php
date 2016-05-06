@@ -31,15 +31,15 @@ class DeviceController extends BaseController
 			[
 				'title' => ['max:128'],
 				'identifier' => ['required', 'unique:device', 'min:3', 'max:64'],
-				'attributes' => ['array'],
-				'attributes.*' => ['exists:device_attribute,name']
+				'attributes' => ['required', 'array', 'min:1'],
+				'attributes.*' => ['required', 'exists:device_attribute,name']
 			]
 		);
 
 		$attributeNames = $req->input ('attributes');
 		$attributes = DeviceAttribute::whereIn ('name', $attributeNames)->get ();
 		if (count ($attributes) != count ($attributeNames))
-			throw new Exception ('Could not retrieve all the specified attributes');
+			throw new \Exception ('Could not retrieve all the specified attributes');
 
 		$device = new Device ();
 		$device->title = $req->input ('title');
@@ -81,7 +81,7 @@ class DeviceController extends BaseController
 			$attributeNames = $req->input ('attributes');
 			$attributes = DeviceAttribute::whereIn ('name', $attributeNames)->get ();
 			if (count ($attributes) != count ($attributeNames))
-				throw new Exception ('Could not retrieve all the specified attributes');
+				throw new \Exception ('Could not retrieve all the specified attributes');
 
 			$device->deviceAttributes ()->saveMany ($attributes);
 		}
