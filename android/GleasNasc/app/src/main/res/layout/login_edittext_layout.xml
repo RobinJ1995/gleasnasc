@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_edittext_style" android:padding="10dp">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/login_edittext_imageview"
+        />
+
+    <!--android:background="@drawable/username_icon"-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_edittext_textview"
+        android:layout_marginLeft="5dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorLoginEditTextForeground"/>
+
+</LinearLayout>
